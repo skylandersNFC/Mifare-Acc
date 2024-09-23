@@ -1,0 +1,489 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Mifare Classic Access Conditions Calculator</title>
+	<link rel="stylesheet" href="assets/style.css">
+	<script type="text/javascript" src="assets/jquery-3.7.1.js"></script>
+	<script type="text/javascript" src="assets/script.js"></script>
+</head>
+<body>
+    <H1>Mifare Classic Access Conditions Calculator</H1>
+    <hr>
+    <div>
+        <label>Access Bytes:</label>
+        <input type="text" name="byte0" class="byte" value="FF" />
+        <input type="text" name="byte1" class="byte" value="07" />
+        <input type="text" name="byte2" class="byte" value="80" />
+
+        <input type="button" class="button-calculate" value="Show"/>
+    </div>
+
+    <br />
+
+    <table id="block0" class="access-bits">
+        <thead>
+            <tr>
+                <th colspan="4">Access bits</th>
+                <th colspan="4">Block 0: Access condition for</th>
+                <th rowspan="2">Application</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>C1</th>
+                <th>C2</th>
+                <th>C3</th>
+                <th>read</th>
+                <th>write</th>
+                <th>increment</th>
+                <th>dec,transfr,rest</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="radio" checked="" value="0" name="access0"></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>key A|B<sup>1</sup></td>
+                <td>key A|B<sup>1</sup></td>
+                <td>key A|B<sup>1</sup></td>
+                <td>key A|B<sup>1</sup></td>
+                <td>transport cfg.</td>
+            </tr>
+            <tr class="greyline">
+                <td><input type="radio" checked="" value="2" name="access0"></td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>key A|B<sup>1</sup></td>
+                <td>never</td>
+                <td>never</td>
+                <td>never</td>
+                <td>read/write block</td>
+            </tr>
+
+            <tr class="greyline">
+                <td><input type="radio" checked="" value="4" name="access0"></td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>key A|B<sup>1</sup></td>
+                <td>key B<sup>1</sup></td>
+                <td>never</td>
+                <td>never</td>
+                <td>read/write block</td>
+            </tr>
+
+            <tr>
+                <td><input type="radio" checked="" value="6" name="access0"></td>
+                <td>1</td>
+                <td>1</td>
+                <td>0</td>
+                <td>key A|B<sup>1</sup></td>
+                <td>key B<sup>1</sup></td>
+                <td>key B<sup>1</sup></td>
+                <td>key A|B1</td>
+                <td>value block</td>
+            </tr>
+            <tr>
+                <td><input type="radio" checked="" value="1" name="access0"></td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>key A|B<sup>1</sup></td>
+                <td>never</td>
+                <td>never</td>
+                <td>key A|B<sup>1</sup></td>
+                <td>value block</td>
+            </tr>
+            <tr class="greyline">
+                <td><input type="radio" checked="" value="3" name="access0"></td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>key B<sup>1</sup></td>
+                <td>key B<sup>1</sup></td>
+                <td>never</td>
+                <td>never</td>
+                <td>read/write block</td>
+            </tr>
+            <tr>
+                <td><input type="radio" checked="" value="5" name="access0"></td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>key B<sup>1</sup></td>
+                <td>never</td>
+                <td>never</td>
+                <td>never</td>
+                <td>read/write block</td>
+            </tr>
+            <tr>
+                <td><input type="radio" checked="" value="7" name="access0"></td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>never</td>
+                <td>never</td>
+                <td>never</td>
+                <td>never</td>
+                <td>read/write block</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="block1" class="access-bits">
+        <thead>
+            <tr>
+                <th colspan="4">Access bits</th>
+                <th colspan="4">Block 1: Access condition for</th>
+                <th rowspan="2">Application</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>C1</th>
+                <th>C2</th>
+                <th>C3</th>
+                <th>read</th>
+                <th>write</th>
+                <th>increment</th>
+                <th>dec,transfr,rest</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="radio" checked="" value="0" name="access1"></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>key A|B<sup>1</sup></td>
+                <td>key A|B<sup>1</sup></td>
+                <td>key A|B<sup>1</sup></td>
+                <td>key A|B<sup>1</sup></td>
+                <td>transport cfg.</td>
+            </tr>
+            <tr class="greyline">
+                <td><input type="radio" checked="" value="2" name="access1"></td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>key A|B<sup>1</sup></td>
+                <td>never</td>
+                <td>never</td>
+                <td>never</td>
+                <td>read/write block</td>
+            </tr>
+
+            <tr class="greyline">
+                <td><input type="radio" checked="" value="4" name="access1"></td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>key A|B<sup>1</sup></td>
+                <td>key B<sup>1</sup></td>
+                <td>never</td>
+                <td>never</td>
+                <td>read/write block</td>
+            </tr>
+
+            <tr>
+                <td><input type="radio" checked="" value="6" name="access1"></td>
+                <td>1</td>
+                <td>1</td>
+                <td>0</td>
+                <td>key A|B<sup>1</sup></td>
+                <td>key B<sup>1</sup></td>
+                <td>key B<sup>1</sup></td>
+                <td>key A|B1</td>
+                <td>value block</td>
+            </tr>
+            <tr>
+                <td><input type="radio" checked="" value="1" name="access1"></td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>key A|B<sup>1</sup></td>
+                <td>never</td>
+                <td>never</td>
+                <td>key A|B<sup>1</sup></td>
+                <td>value block</td>
+            </tr>
+            <tr class="greyline">
+                <td><input type="radio" checked="" value="3" name="access1"></td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>key B<sup>1</sup></td>
+                <td>key B<sup>1</sup></td>
+                <td>never</td>
+                <td>never</td>
+                <td>read/write block</td>
+            </tr>
+            <tr>
+                <td><input type="radio" checked="" value="5" name="access1"></td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>key B<sup>1</sup></td>
+                <td>never</td>
+                <td>never</td>
+                <td>never</td>
+                <td>read/write block</td>
+            </tr>
+            <tr>
+                <td><input type="radio" checked="" value="7" name="access1"></td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>never</td>
+                <td>never</td>
+                <td>never</td>
+                <td>never</td>
+                <td>read/write block</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="block2" class="access-bits">
+        <thead>
+            <tr>
+                <th colspan="4">Access bits</th>
+                <th colspan="4">Block 2: Access condition for</th>
+                <th rowspan="2">Application</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>C1</th>
+                <th>C2</th>
+                <th>C3</th>
+                <th>read</th>
+                <th>write</th>
+                <th>increment</th>
+                <th>dec,transfr,rest</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="radio" checked="" value="0" name="access2"></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>key A|B<sup>1</sup></td>
+                <td>key A|B<sup>1</sup></td>
+                <td>key A|B<sup>1</sup></td>
+                <td>key A|B<sup>1</sup></td>
+                <td>transport cfg.</td>
+            </tr>
+            <tr class="greyline">
+                <td><input type="radio" checked="" value="2" name="access2"></td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>key A|B<sup>1</sup></td>
+                <td>never</td>
+                <td>never</td>
+                <td>never</td>
+                <td>read/write block</td>
+            </tr>
+
+            <tr class="greyline">
+                <td><input type="radio" checked="" value="4" name="access2"></td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>key A|B<sup>1</sup></td>
+                <td>key B<sup>1</sup></td>
+                <td>never</td>
+                <td>never</td>
+                <td>read/write block</td>
+            </tr>
+
+            <tr>
+                <td><input type="radio" checked="" value="6" name="access2"></td>
+                <td>1</td>
+                <td>1</td>
+                <td>0</td>
+                <td>key A|B<sup>1</sup></td>
+                <td>key B<sup>1</sup></td>
+                <td>key B<sup>1</sup></td>
+                <td>key A|B1</td>
+                <td>value block</td>
+            </tr>
+            <tr>
+                <td><input type="radio" checked="" value="1" name="access2"></td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>key A|B<sup>1</sup></td>
+                <td>never</td>
+                <td>never</td>
+                <td>key A|B<sup>1</sup></td>
+                <td>value block</td>
+            </tr>
+            <tr class="greyline">
+                <td><input type="radio" checked="" value="3" name="access2"></td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>key B<sup>1</sup></td>
+                <td>key B<sup>1</sup></td>
+                <td>never</td>
+                <td>never</td>
+                <td>read/write block</td>
+            </tr>
+            <tr>
+                <td><input type="radio" checked="" value="5" name="access2"></td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>key B<sup>1</sup></td>
+                <td>never</td>
+                <td>never</td>
+                <td>never</td>
+                <td>read/write block</td>
+            </tr>
+            <tr>
+                <td><input type="radio" checked="" value="7" name="access2"></td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>never</td>
+                <td>never</td>
+                <td>never</td>
+                <td>never</td>
+                <td>read/write block</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="block3" class="access-bits">
+        <thead>
+            <tr>
+                <th colspan="4" rowspan="2">Access bits</th>
+                <th colspan="6">Trailer: Access condition for</th>
+                <th rowspan="3">Remark</th>
+            </tr>
+            <tr>
+                <th colspan="2">KEYA</th>
+                <th colspan="2">Access bits</th>
+                <th colspan="2">KEYB</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>C1<sub>3</sub></th>
+                <th>C2<sub>3</sub></th>
+                <th>C3<sub>3</sub></th>
+                <th>read</th>
+                <th>write</th>
+                <th>read</th>
+                <th>write</th>
+                <th>read</th>
+                <th>write</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="radio" checked="" value="0" name="access3"></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>never</td>
+                <td>key A</td>
+                <td>key A</td>
+                <td>never</td>
+                <td>key A</td>
+                <td>key A</td>
+                <td>Key B may be read<sup>[1]</sup></td>
+            </tr>
+            <tr>
+                <td><input type="radio" checked="" value="2" name="access3"></td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>never</td>
+                <td>never</td>
+                <td>key A</td>
+                <td>never</td>
+                <td>key A</td>
+                <td>never</td>
+                <td>Key B may be read<sup>[1]</sup></td>
+            </tr>
+            <tr>
+                <td><input type="radio" checked="" value="4" name="access3"></td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>never</td>
+                <td>key B</td>
+                <td>key A|B</td>
+                <td>never</td>
+                <td>never</td>
+                <td>key B</td>
+            </tr>
+            <tr>
+                <td><input type="radio" checked="" value="6" name="access3"></td>
+                <td>1</td>
+                <td>1</td>
+                <td>0</td>
+                <td>never</td>
+                <td>never</td>
+                <td>key A|B</td>
+                <td>never</td>
+                <td>never</td>
+                <td>never</td>
+            </tr>
+            <tr>
+                <td><input type="radio" checked="" value="1" name="access3"></td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>never</td>
+                <td>key A</td>
+                <td>key A</td>
+                <td>key A</td>
+                <td>key A</td>
+                <td>key A</td>
+                <td>Key B may be read, transport cfg.<sup>[1]</sup></td>
+            </tr>
+            <tr>
+                <td><input type="radio" checked="" value="3" name="access3"></td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>never</td>
+                <td>key B</td>
+                <td>key A|B</td>
+                <td>key B</td>
+                <td>never</td>
+                <td>key B</td>
+            </tr>
+            <tr>
+                <td><input type="radio" checked="" value="5" name="access3"></td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>never</td>
+                <td>never</td>
+                <td>key A|B</td>
+                <td>key B</td>
+                <td>never</td>
+                <td>never</td>
+            </tr>
+            <tr>
+                <td><input type="radio" checked="" value="7" name="access3"></td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>never</td>
+                <td>never</td>
+                <td>key A|B</td>
+                <td>never</td>
+                <td>never</td>
+                <td>never</td>
+            </tr>
+        </tbody>
+    </table> 
+    <br class="clear">
+    <hr>
+</body>
+</html>

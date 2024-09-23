@@ -1,0 +1,35 @@
+table.access-bits {
+	background-color: #ffffcc;
+	font-size: 12px;
+	font-family: Arial;
+
+	border: solid 1px black;
+	border-collapse: collapse;
+	float: left;
+	margin: 5px;
+}
+
+table.access-bits td {
+	border: solid 1px black;
+	padding: 1px 2px 1px 3px;
+}
+
+table.access-bits th {
+	background-color: #dddddd;
+	border: solid 1px black;
+}
+
+tr.selected {
+	background-color: yellow;
+}
+
+.byte {
+	width: 30px;
+}
+br.clear {
+clear: both
+}
+
+table#block3 {
+	background-color: #eeffff;
+}      
